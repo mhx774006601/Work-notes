@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>事件绑定区别on,live,bind,delegate</title>
+		<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+	    <style type="text/css">
+	    	.list li{
+	    		list-style: none;
+	    		cursor: pointer;
+	    		line-height: 30px;
+	    	}
+	    </style>
+	</head>
+	<body>
+		<div class="list">
+			<ul>
+				<li>on事件</li>
+				<li>bind事件</li>
+				<li>delegate事件</li>
+				<li>live事件</li>			
+			</ul>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	$(function(){
+		/*$('.list li').on('click',function(){
+			alert('on-click');
+		})*/
+		/*$('.list li').live('click',function(e){
+			alert('live-click');
+		})*/
+		
+		/*$('.list').delegate('li','click',function(){
+			alert('delegate-click');
+		})*/
+		$('.list li').bind('click',function(){
+			alert('bind-click');
+		})
+	})
+</script>

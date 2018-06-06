@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>块状元素垂直居中</title>
+		<style type="text/css">
+			/*********** 1  calc()方法 如果父级元素的宽高不定，而子级元素的宽高固定，
+			 * 则可以采用css3的新增属性calc来使子级元素水平、垂直方向处于父级中央。
+			 * calc可以给元素的width、height、margin等设置动态值。 ************/
+			.box{
+				width:800px;
+				height:800px;
+				border:1px solid #000;
+			}
+			.con{
+				width:200px;
+				height:200px;
+				background: blue;
+				position: relative;
+				left:calc(50% - 100px);
+				top:calc(50% - 100px);
+				
+			}
+			
+			/*********** 2 flex布局 如果父级元素和子级元素的宽高都不定，
+			 * 则可以采用flex布局来使子级元素在父级元素中水平垂直居中显示***********/
+			.box2{
+				width:800px;
+				height:800px;
+				border:1px solid #000;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.con2{
+				width:200px;
+				height:200px;
+				background: blue;
+			}
+			
+			/*********** 3 用定位 使用position:absolute,
+			 * 设置left、top、margin-left、margin-top的属性
+　　　　　　　　　***************/
+　　　　　　　.box3{
+				width:800px;
+				height:800px;
+				border:2px solid #f00;
+			}
+			.con3{
+				width:200px;
+				height:200px;
+				background:#00B7EE;
+				position:absolute;
+				top:50%;
+				left:50%;
+				margin-top:-100px;
+				margin-left:-100px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<!-- 1 -->
+		<div class="box">
+			<div class="con"></div>
+		</div>
+		
+		<!-- 2 -->
+		<div class="box2">
+			<div class="con2"></div>
+		</div>
+		
+		<!-- 3 -->
+		<div class="box3">
+			<div class="con3"></div>
+		</div>
+	</body>
+</html>

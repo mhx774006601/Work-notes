@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>块状元素水平居中</title>
+		<style type="text/css">
+			/****** 1*******/
+			.box{
+				width:200px;
+				height:100px;
+				background: #009688;
+				margin:auto;
+			}
+			/****** 2*******/
+			.box2{
+				text-align:center;
+				border:1px solid #000;
+			}
+			.box2 ul{
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				display: inline;
+				border:1px solid #f00;
+			}
+			.box2 li{
+				display: inline;
+				margin-right:8px;
+				border:1px solid #0FC2B8;
+			}
+			
+			/****** 3*******/
+			.box3{
+				float: left;
+				position: relative;
+				left:50%;
+				border:1px solid #000;
+			}
+			.box3 ul{
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				position: relative;
+				left: -50%;
+				border: 1px solid #f00;
+			}
+			.box3 li{
+				float: left;
+				display: inline;
+				margin-right:8px ;
+				border:1px solid #00B3B7;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 方法一 -->
+		<div class="box"></div>
+		
+		<!-- 方法二 -->
+		<div class="box2">
+			<ul>
+				<li>1234</li>
+				<li>5678</li>
+			</ul>
+		</div>
+		<!-- 方法三 -->
+		<div class="box3">
+			<ul>
+				<li>1adfd</li>
+				<li>sdfdf</li>
+			</ul>
+		</div>
+	</body>
+</html>

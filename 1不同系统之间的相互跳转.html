@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>不同系统之间的互相跳转</title>
+		<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+		<script src="commen_jquery.cookie.js"></script>
+		<script>
+$(function(){
+	/*var userJump = $('#jump').text();
+	window.sessionStorage.setItem('userJump',userJump);*/
+	
+	//本系统设置一个cookie值,第二个系统通过接收这个cookie值进行跳转到指定页面
+	$.cookie('assignmentWork',1); //跳转到布置作业
+	$.cookie('correct',1);//跳转到待批改作业
+	function jump(){
+		alert('22');
+		window.location = 'http://localhost:8080/1homework_web_devCloud2018316/teacher/'
+	}
+})
+
+		</script>
+	</head>
+	<body>
+		<!--<div id="jump">
+			<a href="">跳转系统</a>
+		</div>-->
+		<div id='btn'>
+			<a href="javascript:jump()">跳转到布置作业</a>
+			<a href="">跳转到待批改列表</a>
+		</div>
+	</body>
+</html>

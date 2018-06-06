@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>css清除浮动</title>
+		<style type="text/css">
+			.box_left{
+				width:100px;
+				height:100px;
+				background: #009E94;
+				float: left;
+			}
+			.box_right{
+				width:100px;
+				height:100px;
+				background: #FFB800;
+				float: left;
+			}
+			/***** 1 *****/
+			.box{
+				width:500px;
+				height:auto;
+				border:1px solid #000;
+				margin:10px auto;
+			}
+			
+			.clear{
+				clear: both;
+				zoom: 1;
+			}
+			/**** 2 ****/
+			.box2{
+				width:500px;
+				height:auto;
+				border:1px solid #000;
+				overflow: auto;
+				margin:10px auto;
+			}
+			/***** 3 *****/
+			.box3{
+				width:500px;
+				height:auto;
+				border:1px solid #000;
+				margin:10px auto;
+			}
+			.clerfix:after{
+				content:'';
+				display: block;
+				visibility: hidden;
+				clear: both;
+				height: 0;
+			}
+			.clerfix{
+				zoom: 1;
+			}
+			/********* 4 ***********/
+			.box4{
+				float: left;
+				width:500px;
+				height:auto;
+				border:1px solid #000;
+				margin:10px auto;
+			}
+			/********* 5 ***********/
+			.box5{
+				display: inline-block;
+				width:500px;
+				height:auto;
+				border:1px solid #000;
+				margin:10px auto;
+			}
+			/********* 6 ***********/
+			.box6{
+				width:500px;
+				height:auto;
+				border:1px solid #000;
+				margin:10px auto;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 方法一    -->
+		<div class="box">
+			<div class="box_left">1</div>
+			<div class="box_right">1</div>
+			<div class="clear"></div>
+		</div>
+		
+		<!-- 方法二  -->
+		<div class="box2">
+			<div class="box_left">2</div>
+			<div class="box_right">2</div>
+		</div>
+		
+		<!-- 方法三  -->
+		<div class="box3 clerfix">
+			<div class="box_left">3</div>
+			<div class="box_right">3</div>
+		</div>
+		
+		<!--　方法四　-->
+		<div class="box4">
+			<div class="box_left">4</div>
+			<div class="box_right">4</div>
+		</div>
+		
+		<!--　方法五　-->
+		<div class="box5">
+			<div class="box_left">5</div>
+			<div class="box_right">5</div>
+		</div>
+		
+		<!--　方法六　-->
+		<div class="box6">
+			<div class="box_left">6</div>
+			<div class="box_right">6</div>
+			<br clear="all" /> 
+		</div>
+	</body>
+</html>

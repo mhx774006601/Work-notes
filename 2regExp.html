@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>正则表达式</title>
+		<script src="jquery-3.1.1.min.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function getRE(){
+				var re=/s$/;
+				re.foo = 'bar';
+				return re;
+			}
+			var reg = getRE(),
+			re2 = getRE();
+			console.log(reg === re2);
+			reg.foo = 'baz';
+			console.log(re2.foo);
+		</script>
+	</body>
+</html>

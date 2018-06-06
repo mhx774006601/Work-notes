@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Js数组去重</title>
+		<script src="jquery-3.1.1.min.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*第一种方法*/
+			Array.prototype.isRepeat = function(){
+				var arr=[];
+				var obj={};
+				for(var i=0;i<this.length;i++){
+					if(!obj[this[i]]){
+						arr.push(this[i]);
+						obj[this[i]] = 1;
+					}
+				}
+				return arr;
+			}
+			var arr1=['你好','不好','不好',112,113,11,11,114,114]
+			document.write('arr1--- '+arr1.isRepeat());
+			document.write('<p>-------</p>');
+			
+			/*第二种方法*/
+			Array.prototype.isRepeat2 = function(){
+				 var res = [this[0]];
+				 for(var i=1;i<this.length;i++){
+				 	var repeat = false;
+				 	for(var j=0;j<res.length;j++){
+				 		if(this[i]==res[j]){
+				 			repeat = true;
+				 			break;
+				 		}
+				 	}
+				 	if(!repeat){
+				 		res.push(this[i]);
+				 	}
+				 }
+				 return res;
+			}
+			var arr2 = [1, 'a', 'a', 'b', 'd', 'e', 'e', 1, 0]
+             document.write('arr2--- '+arr2.isRepeat());
+             document.write('<p>-------</p>');
+             
+             /*第三种方法*/
+            Array.prototype.isRepeat3 = function(){
+            	this.sort();
+            	var res = [this[0]];
+            	for(var i=1;i<this.length;i++){
+            		if(this[i]!=res[res.length-1]){
+            			res.push(this[i]);
+            		}
+            	}
+            	return res;
+            }
+            var arr3 = [1, 'a', 'a', 'b', 'd', 'e', 'e', 1, 0];
+            document.write('arr3--- '+arr3.isRepeat3());
+            document.write('<p>--------</p>')
+            
+            /*第四种方法---正则实现*/
+            Array.prototype.isRepeat4 = function () {
+			    return this.sort().join(",,").replace(/(,|^)([^,]+)(,,\2)+(,|$)/g,"$1$2$4").replace(/,,+/g,",").replace(/,$/,"").split(",");
+			}
+            var arr4 = [1, 'cccc', 'c', 'eddd', 'e', 'f', 'f', 5, 5,4,6,4,6];
+            document.write('arr4-- '+arr4.isRepeat4());
+            document.write('<p>--------</p>');
+            
+            /*第四种方法---正则实现2*/
+            var str = "adsfjjbkk";  
+			// \1匹配第一个子串  
+			// 只去除连续重复  
+			document.write(str.replace(/(.)(\1)+/g,function($1,$2,$3){  
+			    return $2;  
+			}));
+			 document.write('<p>---- 5 ----</p>');
+			 
+			 /*第四种方法---正则实现3*/
+			//单行文本单字符去重
+			function isRepeat5(s){
+				var a;
+				while((a=s.replace(/(.)(.*?)\1/,"$1$2"))!=s) s=a;
+				return s;				
+			}
+            var arr5 = isRepeat5("qwertyrewq	wertrewq 213456789765432456")
+            document.write('arr5 ---'+arr5);
+            document.write('<br/>');
+            var arr55 = isRepeat5("1234567898awe.rty.7654321ffffe.eeeterteryere//////erwe/we____dsf_fZ_");
+            document.write('arr55 ---'+arr55);
+            document.write('<p>--------</p>');
+            
+            /*第四种方法---正则实现4*/
+             //数值数组、字符数组去除重复行
+             function isRepeat6(s){
+             	var a;
+             	while((a=s.replace(/(^.+(?:\r\n|\r|\n|$))((?:.*(?:\r\n|\r|\n))*?)^\1(?:\r\n|\r|\n|$)/m,"$1$2"))!=s) s=a;
+    			return s;
+             }
+             var a=[123,1234,9123,123,123,1234,321,123,9123,,1234];
+　　　　　　　　　var s4 =isRepeat6(a.join("\n")).split("\n").filter(s=>s.length).map(s=>parseFloat(s));
+             document.write(s4);
+            document.write('<p>--------</p>');
+            
+            /*第四种方法---正则实现5***********/
+           //只能去除连着的重复字符，不连着的去除不了
+           function isRepeat7(str){    
+			    var reg = /(\w|\/)\1/;
+			    while(reg.test(str)){
+			        str = str.replace(reg, "$1");
+			    }
+			    return str;
+			}
+			
+			document.write(isRepeat7("woshiii_______//////////asssdwkskkkkkaa"));
+            document.write('<p>--------</p>');
+             
+			
+			
+		</script>
+	</body>
+</html>
