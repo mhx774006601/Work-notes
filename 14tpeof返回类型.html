@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>typeof 返回类型</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var box;
+			console.log(box);
+			console.log(typeof box);  //undefined
+			console.log('------ 1 -----');
+			
+			var box2 = {};
+			console.log(box2);
+			console.log(typeof box2);  //object
+			console.log('------ 2 -----');
+			
+			var box3 = 'sff';
+			console.log(box3);
+			console.log(typeof box3);  //string
+			console.log('---- 3 ---');
+			
+			var box4 = 22;
+			console.log(box4);
+			console.log(typeof box4); //number
+			console.log('------ 4 -----');
+			
+			var box5 = [];
+			console.log(box5);
+			console.log(typeof box5); //object
+			console.log('----- 5 ----');
+			
+			var box6 = null;
+			console.log(box6);
+			console.log(typeof box6);  //object
+			console.log('------- 6 ------');
+			
+			var box7 = new Object();
+			console.log(box7);
+			console.log(typeof box7);  //object
+			console.log('----- 7 -----');
+			
+			var box8 = function(){}
+			console.log(box8);
+			console.log(typeof box8);  //function
+			console.log('------ 8 -----');
+			
+			var box9 = true;
+			console.log(box9);
+			console.log(typeof box9);  //boolean
+			console.log('------- 9 ------');
+			
+			var box10 = new Date();
+			console.log(box10);
+			console.log(typeof box10);  //object
+			console.log('------ 10 ------');
+			
+			var box11 = Symbol();
+			console.log(box11);
+			console.log(typeof box11);  //symbol
+			console.log('-------- 11 ------');
+		
+		</script>
+	</body>
+</html>
