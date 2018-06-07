@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js事件委托（事件代理）和冒泡事件</title>
+		<style type="text/css">
+			ul{
+				list-style: none;
+				border:1px solid #000;
+				width:500px;
+				margin: 30px auto;
+			}
+			ul li{
+				height: 40px;
+				line-height: 40px;
+				border-bottom: 1px solid #CCCCCC;
+				cursor: pointer;
+			}
+			
+			#box{
+				margin: 10px auto;
+				width:500px;
+				border:1px solid #000;
+			}
+		</style>
+	</head>
+	<body>
+		<!--　案例2　-->
+		<div id="box">
+	        <input type="button" id="add" value="添加" />
+	        <input type="button" id="remove" value="删除" />
+	        <input type="button" id="move" value="移动" />
+	        <input type="button" id="select" value="选择" />
+        </div>
+        
+      
+	</body>
+</html>
+<script type="text/javascript">
+	window.onload = function(){  
+	/******** 案例2 *******/
+	/*一般方法：　至少需要4次dom操作，如果用事件委托，能进行优化吗？*/
+	var Add = document.getElementById("add");
+        var Remove = document.getElementById("remove");
+        var Move = document.getElementById("move");
+        var Select = document.getElementById("select");
+        
+        Add.onclick = function(){
+        	alert('add');
+        }
+        Remove.onclick = function(){
+        	alert('remove');
+        }
+        Move.onclick = function(){
+        	alert('move');
+        }
+        Select.onclick = function(){
+        	alert('select');
+        }
+       
+       /*事件委托*/
+	/*用事件委托就可以只用一次dom操作就能完成所有的效果，比上面的性能肯定是要好一些的 */
+	/*var oBox = document.getElementById('box');
+		oBox.onclick = function(ev){
+			var ev = ev || window.event;
+			var target = ev.target || ev.srcElement;
+			if(target.nodeName.toLowerCase() == 'input'){
+				switch(target.id){
+					case 'add':
+					  alert('add');
+					  break;
+					case 'remove':
+					   alert('remove');
+					   break;
+					case 'move':
+					   alert('move');
+					   break;
+					case 'select':
+					   alert('select');
+					   break;
+				}
+			}
+			
+		}*/
+		
+	
+}                                                  
+                                                      
+
+</script>

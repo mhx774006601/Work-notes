@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js事件委托（事件代理）和冒泡事件</title>
+		<style type="text/css">
+			ul{
+				list-style: none;
+				border:1px solid #000;
+				width:500px;
+				margin: 30px auto;
+			}
+			ul li{
+				height: 40px;
+				line-height: 40px;
+				border-bottom: 1px solid #CCCCCC;
+				cursor: pointer;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<!-- 案例1 -->
+		<ul id="ul1">
+			<li>111</li>
+			<li>222</li>
+			<li>333</li>
+			<li>444</li>
+		</ul>
+		
+		
+	</body>
+</html>
+<script type="text/javascript">
+	
+	window.onload = function(){  
+	/*案例１*/
+	/*一般写法*/
+	/*dom操作，首先要找到ul，然后遍历li，然后点击li的时候，又要找一次目标的li的位置，才能执行最后的操作，每次点击都要找一次li；*/
+	
+	var oUl = document.getElementById('ul1');      
+	var oLi = oUl.getElementsByTagName('li');      
+	for(var i=0;i<oLi.length;i++){                 
+		oLi[i].onclick = function(){               
+			alert(123)                             
+		}                                          
+	} 
+	
+	/*事件委托方式写法*/
+		/*var oUl = document.getElementById('ul1');
+		oUl.onclick = function(ev){
+			var ev = ev || window.event;
+			var target = ev.target || ev.srcElement;
+			if(target.nodeName.toLowerCase() == 'li'){
+				alert(123);
+				alert(target.innerHTML);
+			}
+			
+		}
+*/
+	
+	/*上面的例子是说li操作的是同样的效果，要是每个li被点击的效果都不一样，那么用事件委托还有用吗？*/
+
+}                                                  
+                                                      
+
+</script>
