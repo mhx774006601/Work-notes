@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>this+闭包+变量提升</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/************  1 this 指向　*************/
+			function fn(){
+				this.a = 0;
+				this.b = function (){
+					alert(this.a);
+				}
+			}
+
+			fn.prototype = {
+				b:function(){
+					this.a = 20;
+					alert(this.a);
+				},
+				c:function(){
+					this.a = 30;
+					alert(this.a);
+				}
+			}
+			var myfn = new fn();
+			myfn.b();
+			myfn.c();
+			
+			/************ 2 有关闭包***************/
+			
+			function fun(n,o){
+				console.log('n----'+n);
+				console.log('o----'+o);
+				return{
+					fun:function(m){
+						return fun(m,n);
+					}
+				}
+			}
+			var a = fun(0);a.fun(1);a.fun(2);a.fun(3);  //undefined 0 0 0
+			var b = fun(0).fun(1).fun(2).fun(3);     //undefined 0 1 2 
+			var c = fun(0).fun(1);c.fun(2);c.fun(3);    //undefined 0 1 1
+			
+			/************ 3 变量声明提升　******************/
+			var name = 'World!';
+			(function () {
+			    if (typeof name === 'undefined') {
+			        var name = 'Jack';
+			        console.log('Goodbye ' + name);
+			    } else {
+			        console.log('Hello ' + name);
+			    }
+			})();
+			
+			/*
+			 * 解析：
+			变量声明提升
+			JS码分为解析阶段和执行阶段。
+			在解析阶段会找到所有声明，并会与各自执行环境关联。只有声明操作会被提升，赋值和逻辑操作会被留在原地等待代码执行。
+			如对于 var a=2;  解析器会把它当成声明操作（var a）和赋值操作（a=2）两部分。声明操作会被提升到它所在执行环境的顶部，并赋值 undefined而赋值操作则会原地待命。 原代码相当于：
+			var name="world";
+			(function(){
+			var name;         //JS无块级作用域，所以变量声明提升到此处
+			if(typeof name==="undefined"){                                     //进入if控制语句
+			name="Jack";
+			console.log("Goodbye"+name);                                     //执行该语句
+			}else{
+			console.log("Hello"+name);
+			}
+			})();
+			//所以答案为 Goodbye Jack
+			*/
+			
+		</script>
+	</body>
+</html>
