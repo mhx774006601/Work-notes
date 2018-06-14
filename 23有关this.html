@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//1111111111111111111
+			var num = 10;
+		    var obj = {
+		        num:8,
+		        inner: {
+		            num: 6,
+		            print: function () {
+		                console.log("num: "+num+" , this.num: "+this.num);
+		            }
+		        }
+		    }
+		    num = 888;
+		    obj.inner.print(); //num: 888 , this.num: 6
+		    var fn = obj.inner.print;
+		    fn(); //num: 888 , this.num: 888, this: Window
+		    (obj.inner.print)(); //num: 888 , this.num: 6
+		    (obj.inner.print = obj.inner.print)(); //num: 888 , this.num: 888 , this: Window
+		    
+		    //222222222222222222222
+		    
+		    var a = 10;
+		    var b = {
+		    	a:12,
+		    	c:{
+		    		a:15,
+		    		d:function(){
+		    			console.log('a:'+a+',this.a:'+this.a);
+		    		}
+		    	}
+		    }
+		    a=9999;
+		    b.c.d();
+		    var e = b.c.d;
+		    e();
+		    (b.c.d)();
+		    (b.c.d = b.c.d)();
+		    
+		    
+		    
+		</script>
+	</body>
+</html>

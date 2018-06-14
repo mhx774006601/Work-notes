@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>求一串字符串中出现次数最多的字符和其出现的次数</title>
+		<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+		  $(function (){
+		  	/******  方法一  ********/
+		  	//例如，/".*?"/ 匹配 '"foo" "bar"' 中的 '"foo"'，而 * 后面没有 ? 时匹配 '"foo" "bar"'。
+		  	//   \\1 意思是匹配第1个子表达式，\\是对\进行一个转义
+		  	var str = "22111111111111111111qjvj58h7vv9n57v55v5jj";
+			var n = -1;
+			while ((new RegExp("(.)(.*?\\1){"+(++n)+"}")).test(str));
+			console.log("出现次数最多的字符是 "+RegExp.$1+",出现次数 "+n);
+			console.log('---------1----------');
+			
+			
+			//方法二
+			var str = "adadfdfseffserfefsefseeffffftsdg";
+			var maxLength = 0;
+			var result = "";
+			while(str!=''){
+			    oldStr = str;
+			    getStr = str.charAt(0);
+			    str = str.replace(new RegExp(getStr,"g"),"");
+			    console.log(str);
+			    if( oldStr.length-str.length > maxLength){
+			        maxLength = oldStr.length-str.length;
+			        result = getStr + "=" + maxLength;
+			    }
+			}
+			console.log(result);
+			console.log('---------2----------');
+			
+			//chartAt()方法使用
+			var str2 = 'qwertyuqqqqqqqqqqqqqq';
+			var ele = str2.charAt(4);
+			console.log(ele);
+			console.log('---------3----------');
+			
+			//replace()方法
+			var str3 = 'abcdefghijklmn';
+		    var result = str3.replace(/abcdefg/,'1234567890');
+		    console.log(result);
+		    console.log('----------4---------');
+			
+	//
+	var str4 = '1234567865432'
+	new RegExp(/(.)(.*?\\1)/);
+	
+			
+		  })
+		</script>
+	</body>
+</html>
