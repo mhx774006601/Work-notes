@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js日期的使用</title>
+		<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+	</head>
+	<body>
+		<p>今天：<input type="text" value="" id="newD" /></p>
+		<p>毫秒：<input type="text" value="" id="getT" /></p>
+		<p>时间：<input type="text" value="" id="tim" /></p>
+	</body>
+</html>
+<script type="text/javascript">		
+			//计时器
+			function tims(){
+				var currD=new Date();
+			var year = currD.getFullYear();
+			var month = currD.getMonth()+1;
+			var day = currD.getDate();
+			var ss = currD.getTime();
+			var h = currD.getHours();
+			var sec = currD.getSeconds();
+			var min = currD.getMinutes();
+			
+			month = checkT(month);
+			day = checkT(day);
+			h = checkT(h);
+			sec = checkT(sec);
+			min = checkT(min);
+			
+			var newD = year+'-'+month+'-'+day;
+			$('#newD').val(newD);
+			$('#getT').val(ss);
+			
+			
+				var t = h+':'+min+':'+sec;
+			    $('#tim').val(t);
+			    setTimeout('tims()', 1000)
+			   
+			}
+			
+			//月或者日是一位的时候，十位补0
+			function checkT(i){
+				if(i<10){
+					i = '0'+i;
+				}
+				return i
+			}
+			
+			
+			$(function (){
+				tims();
+			})
+			
+			
+	
+			
+
+			
+			
+
+		</script>
