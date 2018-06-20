@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>用for语句输出三角形</title>
+		<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function aa(){
+				var row = 6;
+				for(var i = 0;i<row;i++){
+					//正直角三角形
+					for(var j=0;j<i*2+1;j++){
+						document.write('*');
+						document.write('\n');
+					}
+					document.write('<br>');	
+				}
+			}
+			aa();
+			//倒直角三角形
+			document.write('<br><br>');
+			function bb(){
+				var row = 10;
+				for(var i=0;i<row;i++){
+					for(var j=0;j<row-i;j++){
+						document.write('*');
+						document.write('\n');
+					}
+					document.write('<br>');	
+				}
+			}　
+			bb();
+			document.write('<br><br>')
+			
+			
+			function cc(){
+				var row = 6
+				for(var i = 0;i<row;i++){
+					for(var j = 0;j<row-i-1;j++){
+						document.write('0');
+					}
+					for(var j= 0;j<i*2+1;j++){
+						document.write('8');
+					}
+					document.write('<br><br>')
+				}
+			}
+			cc();
+
+		</script>
+	</body>
+</html>
