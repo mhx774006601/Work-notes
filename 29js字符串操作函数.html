@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js字符函数</title>
+		<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//1.concat()  --将两个或多个字符的文本组合起来，返回一个新的字符串
+			var str1 = 'abc';
+			var str1_1 = 'def';
+			var s = str1.concat(str1_1);
+			console.log(s);
+			document.write('s: '+s);
+			document.write('<br/><br/>');
+			
+			//2.indexOf()  --返回字符串中一个子串第一处出现的索引。如果没有匹配项，返回 -1 。括号里填字符串
+			var str2 = 'abcdefg';
+			var s2 = str2.indexOf('d');
+			console.log(s2);
+			document.write('s2: '+s2);
+			document.write('<br/><br/>');
+			
+			//3.charAt() – 返回指定位置的字符。括号里填下标
+			var str3 = 'abcdefghijklmn'
+			var s3 = str3.charAt(3);
+			console.log(s3);
+			document.write('s3: '+s3)
+			document.write('<br/><br/>');
+			
+			//4.lastIndexOf() – 返回字符串中一个子串最后一处出现的索引，如果没有匹配项，返回 -1 
+			var str4 = '12345678';
+			var s4 = str4.lastIndexOf('5678');
+			console.log(s4);
+			document.write('s4: '+s4);
+			document.write('<br/><br/>');
+			
+			//5.match() – 检查一个字符串是否匹配一个正则表达式。
+			var str5 = '11122333 qwer ewr';
+			var regExp = new RegExp(/\d+/g);
+			var s5 = str5.match(regExp);
+			console.log(s5);
+			document.write('s5: '+s5);
+			document.write('<br/><br/>');
+			
+			//6.substr() 函数 -- 返回从string的startPos位置，长度为length的字符串
+			var str6 = '1233wewe33qwert';
+			var s6 = str6.substr(4,7);
+			console.log(s6);
+			document.write('s6: '+s6);
+			document.write('<br/><br/>');
+			
+			//7.substring() – 返回字符串的一个子串。传入参数是起始位置和结束位置。
+			var str7  ='1234567890987654322'
+			var s7 = str7.substring(2,6);
+			console.log(s7);
+			document.write('s7: '+s7);
+			document.write('<br/><br/>');
+			
+			//8.slice() – 提取字符串的一部分，并返回一个新字符串。
+			//请注意，该方法并不会修改数组，而是返回一个子数组。如果想删除数组中的一段元素，应该使用方法 Array.splice()。
+			var str8 = '123456hello';
+			var s8 = str8.slice(3,6);
+			console.log(s8);
+			document.write('s8: '+s8);
+			document.write('<br/><br/>');
+			
+			//9.replace() – 用来查找匹配一个正则表达式的字符串，然后使用新字符串代替匹配的字符串。
+			var str9  ='hello world,Miscro';
+			var s9 = str9.replace(/Miscro/g,'school');
+			console.log(s9);
+			document.write('s9: '+s9);
+			document.write('<br/><br/>');
+			
+			//10.search() – 执行一个正则表达式匹配查找。如果查找成功，返回字符串中匹配的索引值。否则返回 -1 。
+//			search() 方法用于检索字符串中指定的子字符串，或检索与正则表达式相匹配的子字符串。
+			var str10 = 'hello world';
+			var s10 = str10.search('ld');
+			var s10_1 = str10.search(/\d+/g);
+			console.log(s10);
+			console.log(s10_1);
+			document.write('s10: '+s10);
+			document.write('<br/>');
+			document.write('s10_1: '+s10_1);
+			document.write('<br/><br/>');
+			
+			//11.split() – 通过将字符串划分成子串，将一个字符串做成一个字符串数组。
+//			split() 方法用于把一个字符串分割成字符串数组。
+			var str11 = 'hello world';
+			var s11 = str11.split('');
+			var s11_1 = str11.split(" ",1);
+			var s11_2 = str11.split(" ",2);
+			document.write('s11: '+s11);
+			document.write('<br/>');
+			document.write('s11_1: '+s11_1+'<br/>');
+			document.write('s11_2: '+s11_2);
+			document.write('<br/><br/>');
+			
+			
+		</script>
+	</body>
+</html>

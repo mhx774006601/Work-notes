@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js 求两个数的最大公约数</title>
+		<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">	
+			//方法一
+			function getBigFactor(a,b){
+				if(b==0){
+					return a;
+				}
+				return getBigFactor(b,a%b);
+			};
+			var s = getBigFactor(100,60);
+			console.log(s);
+			//方法二
+			function getBig2(num1,num2){
+				for(i=Math.min(num1,num2);i>0;i--){
+					if(num1%i == 0 && num2%i == 0){
+						return i;
+					}
+				}
+			}
+			var a = getBig2(60,30);
+            console.log(a);
+			
+		</script>
+	</body>
+</html>
