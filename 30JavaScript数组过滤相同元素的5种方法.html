@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JavaScript数组过滤相同元素的5种方法</title>
+		<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//方法一 比较内层循环变量的值.
+		    var arr = [1,2,3,1,2,3,4,4,5];
+			var resultArr = [];
+			for(var i = 0;i<arr.length;i++){
+				for(var j = 0;j<resultArr.length;j++){
+					if(resultArr[j] == arr[i]){
+						break;
+					}
+				}
+				if(j == resultArr.length){
+					resultArr[resultArr.length] = arr[i];
+				}
+			}
+			document.write(resultArr);
+			document.write('<br/>');
+			
+			//方法二　计数法
+			var arr2 = ['a','a','b','b','c','c','d'];
+			var count;
+			var resultArr2=[];
+			for(i=0;i<arr2.length;i++){
+				count = 0;
+				for(j=0;j<resultArr2.length;j++){
+					if(resultArr2[j] == arr2[i]){
+						count++;
+						break;
+					}
+				}
+				if (count == 0) {
+					resultArr2[resultArr2.length] = arr2[i];
+				}
+				
+			}
+			document.write('<br/>');
+			document.write(resultArr2);
+			console.log(resultArr2);
+			
+			//3.flag标志法(也叫假设成立法)
+			var arr3 = [1,2,3,2,2,3,4,5,5];
+			var resultArr3 = [];
+			var flag;
+			for(var i=0;i<arr3.length;i++){
+				flag = true;
+				for(var j=0;j<resultArr3.length;j++){
+					if(resultArr3[j] == arr3[i]){
+						flag = false;
+						break;
+					}
+				}
+				if(flag){
+					resultArr3[resultArr3.length] = arr3[i];
+				}
+			}
+			document.write('<br/>');
+			document.write(resultArr3);
+			
+			//4.使用sort()方法排序后比较
+			var arr4 = [1,2,3,4,4,2,2,3,4];
+			var resultArr4 = [];
+			arr4.sort(function(a,b){
+				return a - b;
+			});
+			for(var i = 0;i<arr4.length;i++){
+				if(arr4[i] != arr4[i+1]){
+					  resultArr4[resultArr4.length] = arr4[i];
+				}
+			}
+			document.write('<br/>');
+			document.write(resultArr4);
+			
+			//5.使用filter()方法筛选掉重复的数组
+			var arr5 = [1,2,3,3,4,4,5,5,6];
+			var resultArr5;
+			resultArr5=arr5.filter(function(item,index,self){
+				return self.indexOf(item) == index
+			});
+			document.write('<br/>');
+			document.write(resultArr5);
+			
+			
+		</script>
+	</body>
+</html>
