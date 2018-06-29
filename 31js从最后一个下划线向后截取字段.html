@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js从最后一个下划线向后截取字段</title>
+		<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var str='test_order_zhang_201703222332';  
+            var laststr=str.lastIndexOf('_');  
+            var newStr=str.substring(0,laststr);  
+            console.log(newStr);
+		</script>
+	</body>
+</html>
