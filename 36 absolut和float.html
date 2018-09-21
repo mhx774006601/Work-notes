@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.abs{
+				position: absolute;
+				background: black;
+				width:200px;
+				height:200px;
+				margin:30px;
+				font-size: 28px;
+				line-height: 200px;
+				color: #fff;
+			}
+			.flo{
+				float: left;
+				background: red;
+				width:200px;
+				height:200px;
+				margin:60px;
+				font-size: 28px;
+				line-height: 200px;
+			}
+			.kon{
+				background: blue;
+				width:200px;
+				height:200px;
+				font-size: 28px;
+				line-height: 200px;
+			}
+			.rel{
+				position: relative;
+				background: green;
+				width:200px;
+				height:200px;
+				font-size: 28px;
+				line-height: 200px;
+			}
+		</style>
+ 	</head>
+	<body>
+       <!-- <div class="kon">kon</div>-->
+	
+		<div class="abs">absolute</div>
+		<div class="flo">float</div>
+		<div class="rel">relative</div>
+		
+		
+		
+		<!-- 
+			由以上现象可知：absolute绝对定位，该属性值会将当前对象拖出文档流，
+			后面的对象会占有该对象原有的位置，元素的位置通过top，right，bottom，left属性进行规定，
+			是相对于除static（注意：一般元素默认的定位都是static）定位的第一个元素进行定位。
+			它始终都在float的上面显示。relative在absolute 上面显示
+		-->
+	</body>
+</html>

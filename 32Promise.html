@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JS - Promise</title>
+		
+	</head>
+	<body>
+		<script type="text/javascript">
+//			for(var i= 0;i<5;i++){
+//			   
+//			   	 console.log(i);
+//			   
+//			}
+			
+			//找出数组中的所有数字，并把结果进行累加，请写出对应的程序
+/*			var arr = ['m', '', 1, NaN, 20, 3, '20px', 56, 18, Infinity];
+			var result;
+			
+			for(var i=0;i<arr.length;i++){
+				if(typeof arr[i] !== 'string' && Number(arr[i])== parseFloat(arr[i])){
+					console.log(arr[i]);
+				}
+			}
+			console.log(typeof arr[9])
+
+*/
+
+
+//Promise
+function getURL(URL) {
+    return new Promise(function (resolve, reject) {
+        var req = new XMLHttpRequest();
+        req.open('GET', URL, true);
+        req.onload = function () {
+            if (req.status === 200) {
+                resolve(req.responseText);
+            } else {
+                reject(new Error(req.statusText));
+            }
+        };
+        req.onerror = function () {
+            reject(new Error(req.statusText));
+        };
+        req.send();
+    });
+}
+// 运行示例
+var URL = "http://httpbin.org/status/500"; 
+getURL(URL).then(function onFulfilled(value){
+    console.log(value);
+}).catch(function onRejected(error){ 
+    console.error(error);
+});
+
+		</script>
+
+
+
+	</body>
+</html>

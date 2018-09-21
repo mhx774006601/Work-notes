@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>css设置垂直水平居中</title>
+		<style type="text/css">
+		  #outer{
+			  position: relative;
+			  width:500px;
+			  height:500px;
+			  border:2px solid #f00;
+		  }
+		  #inner{
+			  position: absolute;
+			  width:100px;
+			  height:100px;
+			  top:50%;
+			  left:50%;
+			  background-color:red;
+			  -ms-transform: translate(-50%,-50%);
+			  -webkit-transform: translate(-50%,-50%);
+			  -o-transform: translate(-50%,-50%);
+			  transform: translate(-50%,-50%);
+		  }
+
+		  .parent {
+				width: 200px;
+				height: 200px;
+				background-color: black;
+			}
+			.child {
+				position: relative;
+				height: 100px;
+				width: 100px;
+				top: 50%;
+				left: 50%;
+				background-color:red;  
+				-webkit-transform: translate(-50%, -50%) ;
+				-moz-transform: translate(-50%, -50%) ;
+				-ms-transform: translate(-50%, -50%) ;
+				-o-transform: translate(-50%, -50%) ;
+				transform: translate(-50%, -50%) ;
+			} 
+		</style>
+	</head>
+	<body>
+		<!-- 垂直水平居中设置  -->
+ <div id="outer">
+	<div id="inner">
+	</div>
+</div>
+
+
+<div class="parent">
+	<div class="child"></div>
+</div>
+	</body>
+</html>
