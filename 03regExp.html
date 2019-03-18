@@ -9,97 +9,97 @@
 		<script type="text/javascript">
 			var str = "Is is the cost of of gasoline going up up";
 			var patt1 = /\b([a-z]+) \1\b/ig;
-			document.write(str.match(patt1));
+			document.write(str.match(patt1)); // Is is,of of,up up
 			document.write('<p>---------0------------</p>');
 		
 			//非负整数
 			var reg = /^\d+$/;
 			var reg02 = /^[1-9]\d*|0$/;
 			var str = '113';
-			document.write(str.match(reg));
+			document.write(str.match(reg));  //113
 			document.write('<br>');
-			document.write(str.match(reg02));
+			document.write(str.match(reg02)); //113
 			document.write('<p>----------1-----------</p>');
 			
 			//匹配正整数
 			var reg2 = /^[0-9]*[1-9][0-9]*$/;
 			var reg202 = /^[1-9]\d*$/;
 			var str2 = '2093245678';
-			document.write(str2.match(reg2));
+			document.write(str2.match(reg2));  // 2093245678
 			document.write('<br>');
-			document.write(str2.match(reg202));
+			document.write(str2.match(reg202)); // 2093245678
 			document.write('<p>----------2-----------</p>');
 			
 			//3.非正整数
 			var reg3 = /^(-\d+|(0+))$/;
 			var reg302 = /^-[1-9]\d*|0$/;
 			var str3 = '-10000';
-			document.write(str3.match(reg3));
+			document.write(str3.match(reg3)); //-10000,-10000,
 			document.write("<br>");
-			document.write(str3.match(reg302));
+			document.write(str3.match(reg302)); // -10000
 			document.write('<p>---------3------------</p>');
 			
 			//4.负整数
 			var reg4 = /^-[0-9]*[1-9][0-9]*$/;
 			var reg402 = /^-[1-9]\d*$/;
 			var str4 = '-1234567';
-			document.write(str4.match(reg4));
+			document.write(str4.match(reg4)); //  -1234567
 			document.write('<br>');
-			document.write(str4.match(reg402));
+			document.write(str4.match(reg402)); // -1234567
 			document.write('<p>-----------4----------</p>');
 			
 			//5.整数
 			var reg5=/^-?\d+$/;
 			var reg502 = /^-?[1-9]\d*$/;
 			var str5='-12345678';
-			document.write(str5.match(reg5));
+			document.write(str5.match(reg5)); //-12345678
 			document.write('<br>');
-			document.write(str5.match(reg502));
+			document.write(str5.match(reg502));  // -12345678
 			document.write('<p>-----------5----------</p>');
 			
 			//6.非负浮点数
 			var reg6=/^\d+(\.\d+)?$/;
 			var str6='1.0303';
-			document.write(str6.match(reg6));
+			document.write(str6.match(reg6)); //1.0303,.0303
 			document.write('<p>-----------6----------</p>');
 			
 			//7.正浮点数
 			var reg7=/^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$/;
 			var reg702 = /^[1-9]\d*\.\d*|0\.\d*[1-9]\d*$/;
 			var str7='1234.5678';
-			document.write(str7.match(reg7));
+			document.write(str7.match(reg7));  // 1234.5678,1234.5678,1234.5678,,
 			document.write('<br>');
-			document.write(str7.match(reg702));
+			document.write(str7.match(reg702)); // 1234.5678
 			document.write('<p>-----------7----------</p>');
 			
 			//8.非正浮点数
 			var reg8=/^((-\d+(\.\d+)?)|(0+(\.0+)?))$/;
 			var str8='-1234.5678';
-			document.write(str8.match(reg8));
+			document.write(str8.match(reg8)); // -1234.5678,-1234.5678,-1234.5678,.5678,,
 			document.write('<p>-----------8----------</p>');
 			
 			//9.负浮点数
 			var reg9=/^([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)$/;
 			var reg902 = /^-([1-9]\d*\.\d*|0|\d*\.\d*[1-9]\d*)$/;
 			var str9='-1234.5678';
-			document.write(str9.match(reg9));
+			document.write(str9.match(reg9)); // 1234.5678,,1234.5678,
 			document.write('<br>');
-			document.write(str9.match(reg902));
+			document.write(str9.match(reg902)); // -1234.5678,1234.5678
 			document.write('<p>-----------9----------</p>');
 			
 			//10.浮点数
 			var reg10=/^(-?\d+)(\.\d+)$/;
 			var reg1002=/^-?([1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0)$/;
 			var str10='-1234.5678';
-			document.write(str10.match(reg10));
+			document.write(str10.match(reg10)); // -1234.5678,-1234,.5678
 			document.write('<br>');
-			document.write(str10.match(reg1002));
+			document.write(str10.match(reg1002)); // -1234.5678,1234.5678
 			document.write('<p>-----------10----------</p>');
 			
 			//11.有数字、26个英文字母组成的字符串：^[A-Za-z0-9]+$
 			var reg11=/^[a-zA-Z0-9]+$/;
 			var str11='123456awsedrfgh';
-			document.write(str11.match(reg11));
+			document.write(str11.match(reg11));  // 123456awsedrfgh
 			document.write('<p>-----------11----------</p>');
 			
 			

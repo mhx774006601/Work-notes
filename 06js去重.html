@@ -6,6 +6,7 @@
 		<script src="jquery-3.1.1.min.js"></script>
 	</head>
 	<body>
+			<!-- Js数组去重 -->
 		<script type="text/javascript">
 			/*第一种方法*/
 			Array.prototype.isRepeat = function(){
@@ -41,7 +42,7 @@
 				 return res;
 			}
 			var arr2 = [1, 'a', 'a', 'b', 'd', 'e', 'e', 1, 0]
-             document.write('arr2--- '+arr2.isRepeat());
+             document.write('arr2--- '+arr2.isRepeat2());
              document.write('<p>-------</p>');
              
              /*第三种方法*/
@@ -115,7 +116,7 @@
 			document.write(isRepeat7("woshiii_______//////////asssdwkskkkkkaa"));
             document.write('<p>--------</p>');
              
-			
+		
 			
 		</script>
 	</body>

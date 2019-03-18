@@ -13,26 +13,28 @@
 		  	//   \\1 意思是匹配第1个子表达式，\\是对\进行一个转义
 		  	var str = "22111111111111111111qjvj58h7vv9n57v55v5jj";
 			var n = -1;
-			while ((new RegExp("(.)(.*?\\1){"+(++n)+"}")).test(str));
-			console.log("出现次数最多的字符是 "+RegExp.$1+",出现次数 "+n);
+			while (new RegExp("(.)(.*?\\1){"+(++n)+"}").test(str));
+			console.log("出现次数最多的字符是 "+RegExp.$1+",出现次数 "+n); 
+			//出现次数最多的字符是 1,出现次数 18
 			console.log('---------1----------');
 			
 			
 			//方法二
-			var str = "adadfdfseffserfefsefseeffffftsdg";
+			// var str = "adadfdfseffserfefsefseeffffftsdg";
+			var str = '1122345';
 			var maxLength = 0;
 			var result = "";
 			while(str!=''){
 			    oldStr = str;
 			    getStr = str.charAt(0);
 			    str = str.replace(new RegExp(getStr,"g"),"");
-			    console.log(str);
+			    console.log(str); 
 			    if( oldStr.length-str.length > maxLength){
 			        maxLength = oldStr.length-str.length;
 			        result = getStr + "=" + maxLength;
 			    }
 			}
-			console.log(result);
+			console.log(result); //
 			console.log('---------2----------');
 			
 			//chartAt()方法使用

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>深拷贝</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+    <script>
+        //深拷贝：拷贝的是各个对象所有层级的属性。  注：slice不属于深拷贝  concat方法也不属于深拷贝
+      let obj={
+          name:'mhx',
+          age:37
+      }
+      let deepCopy = function(source){
+          let result = {};
+          for(let key in source){
+             if( typeof source[key]  === 'object') {
+                 //递归复制
+                 result[key] = deepCopy(source[key]);
+             }else{
+                 //简单复制
+                 result[key] = source[key]
+             }
+          }
+          return result;
+      }
+      let objCopy = deepCopy(obj);
+      obj.name = 'ding';
+      console.log(obj);
+      console.log(objCopy);
+    </script>
+</body>
+</html>

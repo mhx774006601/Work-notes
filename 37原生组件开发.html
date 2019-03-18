@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<move-tab index = 1 titles = '["a","b","c"]' contents = '["111","22222","33333"]'></move-tab>
+		<hr  />
+		<move-tab></move-tab>
+		<script>
+			class moveTab extends HTMLElement{
+				constructor(){
+					super();
+					const shadom = this.attachShadow({
+						mode:'open'
+					});
+					 
+					 let n =this.getAttribute('index') || 0;
+					 let titles = JSON.parse(this.getAttribute('titles')) || ['标题一','标题二','标题三'];
+					 let contents = JSON.parse(this.getAttribute('contents')) || ['内容一','内容二','内容三'];
+					
+					for(let i=0;i<3;i++){
+						let button = document.createElement('button');
+						button.innerHTML = titles[i];
+						if(i == n){
+							button.classList.add('active');
+						}
+						button.onclick = function(){
+							//内部元素使用shadom来获取
+							var buttons = shadom.querySelectorAll('button');
+							var ps = shadom.querySelectorAll('p');
+							
+							for(let a=0;a<3;a++){
+								buttons[a].classList.remove('active');
+								ps[a].classList.remove('active');
+							}
+							this.classList.add('active');
+							ps[i].classList.add('active');
+						}
+						shadom.appendChild(button)
+					}
+					for(let i=0;i<3;i++){
+						let p = document.createElement('p');
+						p.innerHTML = contents[i];
+						if(i == n){
+							p.classList.add('active');
+						}
+						shadom.appendChild(p)
+					}
+					
+					const style = document.createElement('style');
+					style.textContent = `
+					   button.active{
+					   	 background:yellow;
+					   }
+					   p{
+					   	display:none;
+					   }
+					   p.active{
+					   	display:block;
+					   }
+					`;
+					shadom.appendChild(style)
+					
+				}
+			}
+			customElements.define('move-tab',moveTab);
+		</script>
+	</body>
+</html>

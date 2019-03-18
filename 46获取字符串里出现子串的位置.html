@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>获取字符串里出现子串的位置</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+</head>
+<body>
+    <script>
+    function findAddress(str,str_target){
+        let n = 0;
+        let result = [];
+        while(str.indexOf(str_target,n) != -1 && n<str.length){
+            result.push(str.indexOf(str_target,n));
+            n = str.indexOf(str_target,n)+str_target.length;
+        }
+        return result;
+    }
+           var arr = findAddress('abascbascbabasbascbascascbab','ab');
+           console.log(arr);
+    </script>
+        
+    
+</body>
+</html>

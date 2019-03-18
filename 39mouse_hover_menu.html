@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			ul,li{
+				padding:0;
+			}
+			
+			.pop_menu_box{
+				width:270px;
+				position: relative;
+				z-index: 9999;
+				height:100%;
+				background: rgba(11,18,31,0.87);
+			}
+			.none{
+				display: none;
+			}
+			.pop_menu_box ul{
+				list-style: none;
+				width:100%;
+				height:100%;
+				
+				position: relative;
+				top:100px;
+
+			}
+			.pop_menu_box ul li{
+				list-style: none;
+				width:100%;
+				height:60px;
+				line-height: 60px;
+				cursor: pointer;
+				text-align: left;
+				color:#47659b;
+				font-size: 20px;
+				padding-left:30px;
+			}
+	       
+	        .pop_menu_box ul li.active{
+	        	color: #8195b7;
+	        }
+	        .li_icon{
+	        	width:20px;
+	        	height:20px;
+	        	border-radius:50%;
+	        	background:#47659b;
+	        	margin-right:15px;
+	        	display: inline-block;
+	        	line-height: 60px;
+	        }
+		</style>
+		<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+	</head>
+	<body style="background: #080f17;" onmouseover="show_coords(event)">
+		
+			<div class="pop_menu_box">
+				<ul>
+					<li>
+					  <span class="li_icon"></span>网站首页
+					</li>
+					<li><span class="li_icon"></span>网站运营分析</li>
+					<li><span class="li_icon"></span>网站效率分析</li>
+					<li><span class="li_icon"></span>按政策类型</li>
+					<li><span class="li_icon"></span>按受众群体</li>
+					<li><span class="li_icon"></span>按发布范围</li>
+					<li><span class="li_icon"></span>找基地</li>
+					<li><span class="li_icon"></span>找资金</li>
+					<li><span class="li_icon"></span>找活动</li>
+					<li><span class="li_icon"></span>找服务</li>
+					
+				</ul>
+			</div>
+		
+
+		
+		<script type="text/javascript">
+			$(function(){
+				var h = $(document).height();
+				$('.pop_menu_box').height(h);
+				
+				$('.pop_menu_box li').click(function(){
+					$(this).addClass('active');
+					$(this).find('span.li_icon').css('background','#8195b7')
+					$(this).siblings().removeClass('active');
+					$(this).siblings('li').find('span.li_icon').css('background','#47659b');
+					
+				});
+				
+		        /*$('.pop_menu_box').mouseleave(function(e) {
+		        	e.stopPropagation();
+		            
+		            $(".pop_menu_box").css('display', 'none');
+		        });*/
+		         
+				
+			})
+			
+			
+			
+			function show_coords(event){
+				  x=event.clientX
+//				  y=event.clientY
+				  
+				  if( x < 30){
+				  	console.log('<30');
+				  	$(".pop_menu_box").css('display', 'block');
+				  }
+			}    
+		        
+		        
+		</script>
+	</body>
+	
+</html>

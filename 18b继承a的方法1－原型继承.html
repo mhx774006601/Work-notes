@@ -6,15 +6,16 @@
 		<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
 	</head>
 	<body>
+			<!-- 继承方法1 --原型链继承 -->
 		<script type="text/javascript">
 			function Animal(name){
 				this.name = name;
 				this.sleep = function(){
-					console.log(this.name + '正在睡觉');
+					console.log(this.name + '正在睡觉'); // cat正在睡觉
 				}
 			}
 			Animal.prototype.eat = function(food){
-				console.log(this.name+'正在吃：'+food);
+				console.log(this.name+'正在吃：'+food); //cat正在吃：fish
 			}
 			/*1、原型链继承
                               核心： 将父类的实例作为子类的原型*/
@@ -24,11 +25,11 @@
 			Cat.prototype = new Animal();
 			Cat.prototype.name = 'cat';
 			var cat = new Cat();
-			console.log(cat.name);
-			console.log(cat.sleep());
-			console.log(cat.eat('fish'));
-			console.log(cat instanceof Animal);
-			console.log(cat instanceof Cat);
+			console.log(cat.name); //cat
+			console.log(cat.sleep()); // undefined
+			console.log(cat.eat('fish')); //undefined
+			console.log(cat instanceof Animal); //true
+			console.log(cat instanceof Cat); //true
 			
 		</script>
 		

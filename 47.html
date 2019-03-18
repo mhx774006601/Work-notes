@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+<body>
+    <script>
+      function group(arr,re){
+ if(arr.length <=0){
+ return re;
+ }
+ if(!re){
+ var arr = arr.slice();
+ var re = arr.shift();
+ return group(arr,re);
+ }else{
+ var now = arr.shift();
+ var newre = [];
+ for(var j=0;j<now.length;j++){
+ for(var k=0;k<re.length;k++){
+ var temp = [];
+ if(re[k] instanceof Array){
+  temp = re[k];
+ }else{
+  temp.push(re[k]);
+ }
+ newre.push(temp.concat(now[j]));
+ }
+ }
+ return group(arr,newre);
+ }
+}
+// var arr = [['a','b','c'],['e','d','f'],['h','i'],['j','k','l','m']];
+var arr = [['a','b'],['e','d']];
+// console.log(arr);
+var result = group(arr);
+console.log(result);
+    </script>
+</body>
+</html>

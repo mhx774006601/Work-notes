@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>鼠标位置</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		body{
+			background-color: pink;
+			width:150%;
+			height: 1500px;
+		}
+		p + p{
+			text-indent: 2em;
+		}
+		fieldset{
+			width: 200PX;
+			margin-left: 200px;
+		}
+		
+			ul,li{
+				padding:0;
+			}
+			
+			.pop_menu_box{
+				width:150px;
+				position: relative;
+				z-index: 9999;
+				display: none;
+			}
+			.none{
+				display: none;
+			}
+			.pop_menu_box ul{
+				list-style: none;
+				width:100%;
+				border:1px solid #f2f2f2;
+				border-radius: 6px;
+				background: rgba(255,250,250,0.5);
+			}
+			.pop_menu_box ul li{
+				list-style: none;
+				width:100%;
+				height:40px;
+				line-height: 40px;
+				cursor: pointer;
+				text-align: center;
+				border-bottom: 1px dashed #ccc;
+				color:#fff;
+			}
+	        .pop_menu_box ul li:hover{
+	        	background: #ccc;
+	        }
+	        .pop_menu_box ul li.active{
+	        	background: #ccc;
+	        }
+	        
+	</style>
+	
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+	
+	<script>	
+ 
+ $(function(){
+		var html = '<div class="pop_menu_box">'
+			html +=	'<ul>'
+			html +=		'<li>1</li>'
+			html +=		'<li>2</li>'
+			html +=		'<li>3</li>'
+			html +=		'<li>4</li>'
+			html +=		'<li>5</li>'
+			html +=		'<li>6</li>'
+			html +=		'<li>7</li>'
+			html +=		'<li>8</li>'
+			html +=		'<li>9</li>'
+			html +=		'<li>10</li>'
+			html +=		'<li>11</li>'
+			html +=		'<li>12</li>'
+			html +=		'<li>13</li>'
+					
+			html +=	'</ul>'
+			html +='</div>'	;	
+			
+			$('body').append(html)
+						        
+	        $('.pop_menu_box li').click(function(){
+				$(this).addClass('active');
+				$(this).siblings().removeClass('active');
+			});
+			
+	        $('.pop_menu_box').mouseleave(function(e) {
+	        	e.stopPropagation();
+	            
+			$(document).find('.pop_menu_box').fadeOut();
+	        });
+
+
+window.onload = function(){
+			document.getElementsByTagName("body")[0].onmousemove = move;
+		};
+
+function move(ev){
+			var ev = window.event || ev;			
+			document.getElementById("CX").value= ev.clientX;			
+			document.getElementById("CY").value= ev.clientY;			
+			document.getElementById("SX").value= ev.screenX;			
+			document.getElementById("SY").value= ev.screenY;			
+			document.getElementById("SCLX").value= window.scrollX;			
+			document.getElementById("SCLY").value= window.scrollY;			
+			document.getElementById("POX").value= window.pageXOffset;			
+			document.getElementById("POY").value= window.pageYOffset;			
+			document.getElementById("SCL").value = (document.documentElement || document.body.parentNode || document.body).scrollLeft;			
+			document.getElementById("SCT").value = (document.documentElement || document.body.parentNode || document.body).scrollTop;
+		
+			
+			
+			
+			var dScreenX = ev.clientX;
+			document.getElementById("SX").value= ev.screenX;
+
+				console.log('dScreenX:'+dScreenX);
+
+				if( dScreenX < '100'){	
+					console.log('<100');
+					$(document).find('.pop_menu_box').css('display','block');
+				}
+		}
+    
+	        
+})
+
+
+	</script>
+</head>
+<body>
+	<p>结论：</p>	<p>ev.clientXY是html区域相对于browser屏幕左上角的位置，即原点在浏览器窗口的html区域的左上角；</p>	<p>ev.screenXY是电脑屏幕区域相对于屏幕的左上角的位置，即原点在电脑屏幕左上角，可将浏览器窗口缩小观察数值；</p>	<p>window.scrollXY是html滚动后消失的左边及上边宽度；</p>	<p>window.pageXYOffset和window.scrollXY相同，MSDN建议用此属性替代scrollXY解决部分兼容问题；</p>	<p>document....scrollTop|scrollLeft与window.scrollXY、window.pageXYOffset相同。</p>	<fieldset>		<legend>鼠标clientXY位置</legend>		<label>X:<input id="CX" type="text"  readonly></label><br/>		<label>Y:<input id="CY" type="text"  readonly></label><br/>	</fieldset>	<fieldset>		<legend>鼠标screenXY位置</legend>		<label>X:<input id="SX" type="text"  readonly></label><br/>		<label>Y:<input id="SY" type="text"  readonly></label><br/>	</fieldset>	<fieldset>		<legend>scrollXY位置</legend>		<label>X:<input id="SCLX" type="text"  readonly></label><br/>		<label>Y:<input id="SCLY" type="text"  readonly></label><br/>	</fieldset>	<fieldset>		<legend>pageXYOffsetXY位置</legend>		<label>X:<input id="POX" type="text"  readonly></label><br/>		<label>Y:<input id="POY" type="text"  readonly></label><br/>	</fieldset>	<fieldset>		<legend>scrollTop|Left位置</legend>		<label>X:<input id="SCL" type="text"  readonly></label><br/>		<label>Y:<input id="SCT" type="text"  readonly></label><br/>	</fieldset>
+
+</html>

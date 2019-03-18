@@ -7,7 +7,8 @@
 	</head>
 	<body>
 		
-    <script type="text/javascript">
+	<script type="text/javascript">
+	//统计字符串中字母个数或统计最多字母数
         var str = 'aaabbbccccddfghuuuuuuuuursgedtfhndfbdf';
         var obj = {};
         for(var i=0;i<str.length;i++){
@@ -21,7 +22,8 @@
         	}
         }
         for(key in obj){
-        	document.write(obj[key].value +'='+obj[key].count+'&nbsp;');
+        	document.write(obj[key].value +'='+obj[key].count+'&nbsp;'); 
+			//a=3 b=4 c=4 d=5 f=4 g=2 h=2 u=9 r=1 s=1 e=1 t=1 n=1 
         }
         
        

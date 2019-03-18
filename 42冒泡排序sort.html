@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>js实现冒泡排序</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+    <!-- 给已知数据排序 -->
+    <script type="text/javascript">
+    //    <!-- 1. 冒泡排序 - 从小到大　--> 
+        let min = [23,45,67,3,2,22,55,90]
+        let temp = null;
+        for(let i = 0;i<min.length;i++){
+            for(let j = i+1;j<min.length;j++){
+                 if( min[i] > min[j]){
+                    temp = min[i] ;
+                    min[i] = min[j];
+                    min[j] = temp;
+                 }
+            }
+        }
+
+        console.log('由小到大排序：＝＝　'+min);
+
+// 　由大到小排序
+
+　　　let max = [23,45,67,3,2,22,55,90]
+        let temp2 = null;
+        for(let i = 0;i<max.length;i++){
+            for(let j = i+1;j<max.length;j++){
+                 if( max[i] < max[j]){
+                    temp2 = max[i];
+                    max[i] = max[j];
+                    max[j] = temp2;
+                 }
+            }
+        }
+
+        console.log('由大到小排序：＝＝　'+max);
+
+
+    
+    
+    </script>
+</body>
+</html>
+
