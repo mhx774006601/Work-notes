@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>js实现前一天后一天</title>
+    <style type="text/css">
+    	body{
+		    margin: 0;
+		    padding: 0;
+		}
+		.nav{
+		    text-align: center;
+		    margin: 5%;
+		    font-size: 3rem;
+		}
+		.tab_content{
+		    width: 100%;
+		}
+		.first{
+		    width: 100%;
+		    margin: 10% auto;
+		    margin-top:0;
+		    text-align: center;
+		}
+		.first input{
+		    text-align: center;
+		    font-size: 2.9rem;
+		    border: 0;
+		    width: 30%;
+		}
+		.btn{
+		    background:#24ccf9;
+		    background: linear-gradient(to right, #24ccf9 0%,#3191de 100%);
+		    color: #fff;
+		    font-size: 2.9rem;
+		    border: 0;
+		    border-radius: .8rem;
+		    padding: .5rem 3.5rem 0.5rem 3.5rem;
+		}
+		.content{
+		    width: 100%;
+		    height: 1000px;
+		    background: #dddddd;
+		}
+		.content_first{
+		    width: 100%;
+		    margin: 5% auto;
+		    background: #ffffff;
+		    font-size: 2.5rem;
+		}
+		.date{
+			
+		}
+    </style>
+</head>
+<body>
+    <div class="tab_content">
+        <div class="first">
+            <button class="btn" id="qiantian">前一天</button>
+            <p id="rest" class="date">123</p>
+            <button class="btn" id="houtian">后一天</button>
+        </div>
+        <hr/>
+    </div>
+    
+</body>
+</html>
+<script src="jquery-3.1.1.min.js"></script>
+<script>
+    /*切换时间*/
+    function onDutyDate() {
+        var oDate = new Date();
+        var year = oDate.getFullYear();
+        var month = oDate.getMonth()+1;
+        var date = oDate.getDate();
+        if(month<10){
+            month="0"+month;
+        }
+        if(date<10){
+            date = "0"+date
+        }
+        var index = 0;
+        var dateStr = year+'-'+month+'-'+date
+        $('#rest').html(dateStr);
+        // 前一天
+        $('#qiantian').click(function() {
+
+            var rest=new Date($('#rest').html())
+            rest.setDate(rest.getDate()-1)
+            var month=rest.getMonth()*1+1
+            if(month<10){
+                month='0'+month
+            }
+            var data = rest.getDate();
+            if(data <10){
+                data = "0"+data
+            }
+            var prevDateStr =oDate.getFullYear()+'-'+month+'-'+data
+            $('#rest').html(prevDateStr);
+        });
+
+        // 后一天
+        $('#houtian').click(function() {
+//          index++;
+//          if(index>1) {
+//              index=1;
+//          return false;
+//          }
+            var rest=new Date($('#rest').html())
+            rest.setDate(rest.getDate()+1)
+            oDate.setDate(date+index);
+            var month=rest.getMonth()*1+1
+            if(month<10){
+                month='0'+month
+            }
+            var data = rest.getDate();
+            if(data <10){
+                data = "0"+data
+            }
+            var nextDateStr =rest.getFullYear()+'-'+month+'-'+data
+//                    +'<br>'+week[oDate.getDay()];
+            $('#rest').html(nextDateStr);
+        });
+    }
+    onDutyDate();
+</script>

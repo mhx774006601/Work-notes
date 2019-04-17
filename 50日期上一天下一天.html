@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>js计算前一天后一天日期</title>
+    <style type="text/css">
+    	body{
+		    margin: 0;
+		    padding: 0;
+		}
+		
+		.btn{
+		    background:#24ccf9;
+		    background: linear-gradient(to right, #24ccf9 0%,#3191de 100%);
+		    color: #fff;
+		    font-size: 2.9rem;
+		    border: 0;
+		    border-radius: .8rem;
+		    padding: .5rem 3.5rem 0.5rem 3.5rem;
+		    cursor: pointer;
+		}
+		
+		.first{
+			width:80%;
+			margin:30px auto;
+			text-align: center;
+		}
+		.left{
+			position: relative;
+			right:0;
+			display: inline-block;
+		}
+		.right{
+			position: relative;
+			left:0;
+			display: inline-block;
+		}
+		.clerfix{
+			clear: both;
+			overflow: hidden;
+		}
+		.date{
+			width:300px;
+			height:50px;
+			line-height: 50px;
+			margin: 30px auto;
+			position: relative;
+			display: inline-block;
+		}
+    </style>
+</head>
+<body>
+    <div class="first clerfix">
+        <span class="btn left" id="beforeDay">前一天</span>
+        <span id="course" class="date"></span>
+        <span class="btn right" id="afterDay">后一天</span>
+    </div>
+
+</body>
+</html>
+<script src="jquery-3.1.1.min.js"></script>
+<script type='text/javascript'>
+	function currDate(){
+		var currday = new Date();
+		var year = currday.getFullYear();
+		var month = currday.getMonth()+1;
+		var day = currday.getDate();
+		if(month<10){
+			month = '0'+month;
+		}
+		if(day<10){
+			day = '0'+day;
+		}
+		var txt = year+'-'+month +'-'+day;
+		$('#course').html(txt);
+		
+		//前一天
+		$('#beforeDay').click(function(){	
+			var t1=new Date($('#course').html());
+            var befored = t1.getDate()-1;    
+			t1.setDate(befored);
+			var month = t1.getMonth()+1;
+			var day = t1.getDate();
+			if(month<10){
+				month = '0'+month;
+			}
+			if(day<10){
+				day = '0'+day;
+			}
+			var newD = year+ '-'+month+'-'+day;
+			$('#course').html(newD);
+
+		})
+		
+		//后一天
+		$('#afterDay').click(function(){	
+			var t1=new Date($('#course').html());
+            var befored = t1.getDate()+1;    
+			t1.setDate(befored);
+			var month = t1.getMonth()+1;
+			var day = t1.getDate();
+			if(month<10){
+				month = '0'+month;
+			}
+			if(day<10){
+				day = '0'+day;
+			}
+			var newD = year+ '-'+month+'-'+day;
+			$('#course').html(newD);
+
+		})
+	}
+	
+   
+	currDate()	
+		
+	
+
+	
+	
+		
+</script>

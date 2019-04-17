@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+//			将 user=admin&password=admin 这种形式的转换成
+//			{
+//				password: "admin"
+//				user: "admin"
+//			}   这样的形式
+
+			//方法一
+			var str='user=admin&password=admin';
+            var json={};
+            str.split('&').map(e =>{
+                return json[e.split('=')[0]] = e.split('=')[1]
+            })
+            console.log(json);
+            
+            //方法二
+//         页面中引入<script src="https://cdn.bootcss.com/qs/6.6.0/qs.js"></script>
+//          const qs = Qs.parse(window.location.search.substr(1))
+           <!--react中  状态中定义如下，constructor方法初始化-->
+             import qs from 'qs'
+             
+             
+            this.state={
+	            user:'',
+	            password:''
+           }
+           
+           const {user,password} = this.state;
+			let params = new URLSearchParams();
+            params.append('user', user);
+            params.append('password', password);
+            console.log(params)  // 打印出来的params 为 object
+            
+            let param = params.toString();
+            console.log(param)  // user=admin&password=admin
+
+            const qss = qs.parse(param); //把 user=admin&password=admin  格式转换成{password: "admin",user: "admin"}
+            console.log(qss);   //  {password: "admin",user: "admin"}
+            
+            
+            
+            
+		</script>
+	</body>
+</html>

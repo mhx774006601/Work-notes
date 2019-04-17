@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js开课吧公开课2019.04.01</title>
+	</head>
+	<body>
+		<script>
+			//扁平化数组
+//			let arr1 = [1,2,['a','b','c'],3];
+//			console.log(arr1.flat());
+//			
+//			let arr1 = [1,2,['a','b',['中','文',[2,2,3,[4,5]]]],3];
+//			console.log(arr1.flat( Infinity ));  //Infinity 无穷大
+
+//	   		let arr2 = [1,2,{x:1,y:2},3];
+//	   		console.log(arr2.flat(Infinity));
+
+//Array.prototype.reduce()
+
+
+	//数组去重	
+		let arr1 = [1,2,2,3,3,4,5];
+		let s1 = new Set( arr1 );
+		console.log(s1);
+		let arr2 = [...s1];
+		console.log(arr2);
+		
+		console.log( [...new Set(arr1)]);
+		
+		//对象去重  Object.keys()   Set
+		let obj = {}; //key
+		arr1.forEach(item => {
+			obj[item] = 1;
+		});
+		console.log(obj)
+		console.log( Object.keys(obj).map(o =>Number(o)) );
+		
+		//对象遍历
+//		for .. in
+//		Object.defineProperty()  //vue中的数据监听，劫持
+
+//		for v of obj  遍历可迭代对象
+
+		</script>
+	</body>
+</html>
