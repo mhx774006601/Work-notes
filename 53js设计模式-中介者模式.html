@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS设计模式--中介者模式</title>
+</head>
+<body>
+    <script>
+    //    4.中介者模式的定义：通过一个中介者对象，其他所有的相关对象都通过该中介者对象来通信，
+    //    而不是相互引用，当其中的一个对象发生改变时，只需要通知中介者对象即可。
+    //    通过中介者模式可以解除对象与对象之间的紧耦合关系。
+
+    var goods = {   //手机库存
+        'red|32G': 3,
+        'red|64G': 1,
+        'blue|32G': 7,
+        'blue|32G': 6,
+    };
+
+        //中介者
+    var mediator = (function() {
+        var colorSelect = document.getElementById('colorSelect');
+        var memorySelect = document.getElementById('memorySelect');
+        var numSelect = document.getElementById('numSelect');
+        return {
+            changed: function(obj) {
+                switch(obj){
+                    case colorSelect:
+                        //TODO
+                        break;
+                    case memorySelect:
+                        //TODO
+                        break;
+                    case numSelect:
+                        //TODO
+                        break;
+                }
+            }
+        }
+    })();
+    colorSelect.onchange = function() {
+        mediator.changed(this);
+    };
+    memorySelect.onchange = function() {
+        mediator.changed(this);
+    };
+    numSelect.onchange = function() {
+        mediator.changed(this);
+    };
+
+
+    </script>
+</body>
+</html>

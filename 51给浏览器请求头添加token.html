@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>给浏览器请求头headers添加token</title>
+		<script src="axios.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript"> 
+			//先把token存到localstorage中，然后再从里面去取来
+			//设置token
+			window.localStorage.setItem('token','1234567890');
+			//取出token
+	        let toks = localStorage.getItem('token');
+	        //利用axios添加请求头
+	          axios({
+                    method:"post",
+                    url:"http://localhost",   //哪个页面/接口需要加token，就请求哪个页面/接口
+                    // data:{
+                    //     user: this.props.user,
+                    //     password: this.props.password
+                    // },            //参数
+                    headers:{
+                        "Authorization":'Token'+ toks,     //请求头携带的token
+                        'token':toks
+                    }
+                })
+		</script>
+		
+	</body>
+</html>
