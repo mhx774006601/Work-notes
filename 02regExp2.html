@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>正则表达式-获取网址加端口号</title>
+		<script src="jquery-3.1.1.min.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var re=/((https|http|ftp):\/\/)?[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62}|(:[0-9]{1,4}))+\.?/;
+				var url = location.href;
+				var urls = re.exec(url);
+//				var urls = url.match(re);
+				console.log(urls[0]); //获取到的结果：http://127.0.0.1:8020
+
+
+		</script>
+	</body>
+</html>
